@@ -19,8 +19,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var favouriteLabel: UILabel!
     @IBOutlet weak var teamSegmentedControl: UISegmentedControl!
     
+    let teamService = TeamService()
+    
     let dateFormatter: DateFormatter = {
-       let formatter = DateFormatter()
+        let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateStyle = .medium
         return formatter
@@ -28,84 +30,43 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initData()
-        guard let team = loadTeam(selector: teamSegmentedControl.titleForSegment(at: 0)!) else {
+        teamService.initData()
+        guard let team = teamService.loadTeam(selector: teamSegmentedControl.titleForSegment(at: 0)!) else {
             return
         }
+        teamService.currentTeam = team
         updateView(team: team)
-    
-        
-        /*
-         guard let managedContext = getManagedContext() else {
-         return
-         }
-         let team = NSEntityDescription.insertNewObject(forEntityName: "Team", into: managedContext) as! Team
-         team.name = "Developers"
-         team.isFavourite = true
-         team.rating = 5.0
-         
-         saveContext()
-         
-         let request: NSFetchRequest<Team> = Team.fetchRequest()
-         if let teams = try? getManagedContext()?.fetch(request), let firstTeam = teams.first {
-         print(firstTeam.name ?? "No data")
-         }
-         */
     }
     
     @IBAction func onAddWin(_ sender: Any) {
+        teamService.addWinToCurrentTeam()
+        updateView(team: teamService.currentTeam!)
     }
     
     @IBAction func onAddRating(_ sender: Any) {
+        let alert = UIAlertController(title: "Rating", message: "Enter new rating:", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.keyboardType = .decimalPad
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let saveAction = UIAlertAction(title: "Update", style: .destructive) { [unowned self] action in
+            if let text = alert.textFields?.first?.text, let currentTeam = self.teamService.currentTeam {
+                currentTeam.rating = Double(text) ?? 0.0
+                self.teamService.sync()
+                self.updateView(team: currentTeam)
+            }
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+        present(alert, animated: true)
     }
     
     @IBAction func onTeamChange(_ sender: UISegmentedControl) {
-    }
-    
-    func getManagedContext() -> NSManagedObjectContext? {
-        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-    }
-    
-    func saveContext() {
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
-    }
-    
-    func initData() {
-        guard let managedContext = getManagedContext(), try! managedContext.count(for: Team.fetchRequest()) == 0,
-            let path = Bundle.main.path(forResource: "teams-data", ofType: "plist"), let teamsData = NSArray(contentsOfFile: path) else {
-                return
+        guard let team = teamService.loadTeam(selector: sender.titleForSegment(at: sender.selectedSegmentIndex)!) else {
+            return
         }
-        for teamDictionary in teamsData {
-            let team = NSEntityDescription.insertNewObject(forEntityName: "Team", into: managedContext) as! Team
-            let dictionary = teamDictionary as! [String: Any]
-            team.id = UUID(uuidString: dictionary["id"] as! String)
-            team.name = (dictionary["name"] as! String)
-            team.selector = (dictionary["selector"] as! String)
-            team.rating = dictionary["rating"] as! Double
-            let photoName = dictionary["photo"] as! String
-            team.photo = UIImage(named: photoName)?.jpegData(compressionQuality: 1)
-            team.wins = dictionary["wins"] as! Int32
-            team.lastWin = (dictionary["lastWin"] as! Date)
-            team.isFavourite = dictionary["isFavourite"] as! Bool
-            team.url = URL(string: dictionary["url"] as! String)
-            let colorDictionary =  dictionary["color"] as! [String: CGFloat]
-            team.color =  UIColor(red: colorDictionary["red"]! / 255, green: colorDictionary["green"]! / 255, blue: colorDictionary["blue"]! / 255,alpha: 1)
-        }
-        try! managedContext.save()
-    }
-    
-    func loadTeam(selector: String) -> Team? {
-        if let managedContext = getManagedContext() {
-            let request: NSFetchRequest<Team> = Team.fetchRequest()
-            request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Team.selector), selector])
-            do {
-                let results = try managedContext.fetch(request)
-                return results.first
-            } catch let error as NSError {
-                print("Could not load team \(error)")
-            }
-        }
-        return nil
+        teamService.currentTeam = team
+        updateView(team: team)
     }
     
     func updateView(team: Team) {
@@ -114,11 +75,10 @@ class ViewController: UIViewController {
         }
         imageView.image = UIImage(data: photoData)
         titleLabel.text = team.name
-        ratingLabel.text = "Rating: \(team.rating)/5.0"
+        ratingLabel.text = "Rating: \(team.rating)"
         winsLabel.text = "Wins: \(team.wins)"
         lastWinLabel.text = "Last win: \(dateFormatter.string(from: team.lastWin!))"
-        favouriteLabel.text = "Is favourite: \(team.isFavourite)";
+        favouriteLabel.text = "Is favourite: \(team.isFavourite)"
     }
     
 }
-

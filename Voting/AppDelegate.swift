@@ -11,6 +11,10 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    static var shared: AppDelegate {
+        UIApplication.shared.delegate as! AppDelegate
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
@@ -29,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
+    
+    var context: NSManagedObjectContext {
+        persistentContainer.viewContext
+    }
 
     func saveContext () {
         let context = persistentContainer.viewContext
