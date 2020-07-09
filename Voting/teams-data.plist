@@ -8,7 +8,7 @@
 		<key>name</key>
 		<string>Developers</string>
 		<key>selector</key>
-		<string>A</string>
+		<string>First team</string>
 		<key>rating</key>
 		<real>5.0</real>
 		<key>color</key>
@@ -21,7 +21,7 @@
 			<integer>36</integer>
 		</dict>
 		<key>photo</key>
-		<string>A.png</string>
+		<string>A.jpg</string>
 		<key>lastWin</key>
 		<date>2020-06-20T12:15:24Z</date>
 		<key>wins</key>
@@ -37,7 +37,7 @@
         <key>name</key>
         <string>Testers</string>
         <key>selector</key>
-        <string>B</string>
+        <string>Second team</string>
         <key>rating</key>
         <real>5.0</real>
         <key>color</key>
@@ -50,7 +50,7 @@
             <integer>36</integer>
         </dict>
         <key>photo</key>
-        <string>B.png</string>
+        <string>A.jpg</string>
         <key>lastWin</key>
         <date>2020-06-20T12:15:24Z</date>
         <key>wins</key>
@@ -66,7 +66,7 @@
         <key>name</key>
         <string>Admins</string>
         <key>selector</key>
-        <string>C</string>
+        <string>Third team</string>
         <key>rating</key>
         <real>4.0</real>
         <key>color</key>
@@ -79,7 +79,7 @@
             <integer>236</integer>
         </dict>
         <key>photo</key>
-        <string>C.png</string>
+        <string>A.jpg</string>
         <key>lastWin</key>
         <date>2020-02-20T12:15:24Z</date>
         <key>wins</key>

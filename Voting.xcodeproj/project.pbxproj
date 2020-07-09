@@ -64,13 +64,13 @@
 		804DBCC524B714F400BEA060 /* Voting */ = {
 			isa = PBXGroup;
 			children = (
+				804DBCD224B714F600BEA060 /* Assets.xcassets */,
 				804DBCDE24B71E8000BEA060 /* Team+CoreDataProperties.swift */,
 				804DBCDD24B71E8000BEA060 /* Team+CoreDataClass.swift */,
 				804DBCC624B714F400BEA060 /* AppDelegate.swift */,
 				804DBCC824B714F400BEA060 /* SceneDelegate.swift */,
 				804DBCCA24B714F400BEA060 /* ViewController.swift */,
 				804DBCCC24B714F400BEA060 /* Main.storyboard */,
-				804DBCD224B714F600BEA060 /* Assets.xcassets */,
 				804DBCD424B714F600BEA060 /* LaunchScreen.storyboard */,
 				804DBCD724B714F600BEA060 /* Info.plist */,
 				804DBCCF24B714F400BEA060 /* Voting.xcdatamodeld */,

@@ -104,10 +104,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="favouriteLLabel" destination="Txb-DI-aci" id="NJg-an-S6z"/>
+                        <outlet property="favouriteLabel" destination="Txb-DI-aci" id="uZd-Zd-y1M"/>
                         <outlet property="imageView" destination="Nra-Zf-5Xj" id="IZf-sw-gpk"/>
                         <outlet property="lastWinLabel" destination="KrR-87-Th2" id="xwk-mT-yA7"/>
                         <outlet property="ratingLabel" destination="BEJ-XW-uu7" id="Ryg-0R-5YK"/>
+                        <outlet property="teamSegmentedControl" destination="TJT-pq-Aqn" id="a2N-Hq-Yqd"/>
                         <outlet property="titleLabel" destination="Q1w-hD-aJD" id="gjz-9B-Rrr"/>
                         <outlet property="winsLabel" destination="fDm-V7-5FE" id="F4o-ck-Uly"/>
                     </connections>
