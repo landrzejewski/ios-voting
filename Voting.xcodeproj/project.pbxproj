@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80440C6424B724E8002EE31A /* teams-data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80440C6324B724E8002EE31A /* teams-data.plist */; };
 		804DBCC724B714F400BEA060 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804DBCC624B714F400BEA060 /* AppDelegate.swift */; };
 		804DBCC924B714F400BEA060 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804DBCC824B714F400BEA060 /* SceneDelegate.swift */; };
 		804DBCCB24B714F400BEA060 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804DBCCA24B714F400BEA060 /* ViewController.swift */; };
@@ -14,9 +15,12 @@
 		804DBCD124B714F400BEA060 /* Voting.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 804DBCCF24B714F400BEA060 /* Voting.xcdatamodeld */; };
 		804DBCD324B714F600BEA060 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 804DBCD224B714F600BEA060 /* Assets.xcassets */; };
 		804DBCD624B714F600BEA060 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804DBCD424B714F600BEA060 /* LaunchScreen.storyboard */; };
+		804DBCDF24B71E8000BEA060 /* Team+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804DBCDD24B71E8000BEA060 /* Team+CoreDataClass.swift */; };
+		804DBCE024B71E8000BEA060 /* Team+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804DBCDE24B71E8000BEA060 /* Team+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		80440C6324B724E8002EE31A /* teams-data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "teams-data.plist"; sourceTree = "<group>"; };
 		804DBCC324B714F400BEA060 /* Voting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voting.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		804DBCC624B714F400BEA060 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		804DBCC824B714F400BEA060 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		804DBCD224B714F600BEA060 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		804DBCD524B714F600BEA060 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		804DBCD724B714F600BEA060 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		804DBCDD24B71E8000BEA060 /* Team+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Team+CoreDataClass.swift"; sourceTree = "<group>"; };
+		804DBCDE24B71E8000BEA060 /* Team+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Team+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,8 @@
 		804DBCC524B714F400BEA060 /* Voting */ = {
 			isa = PBXGroup;
 			children = (
+				804DBCDE24B71E8000BEA060 /* Team+CoreDataProperties.swift */,
+				804DBCDD24B71E8000BEA060 /* Team+CoreDataClass.swift */,
 				804DBCC624B714F400BEA060 /* AppDelegate.swift */,
 				804DBCC824B714F400BEA060 /* SceneDelegate.swift */,
 				804DBCCA24B714F400BEA060 /* ViewController.swift */,
@@ -66,6 +74,7 @@
 				804DBCD424B714F600BEA060 /* LaunchScreen.storyboard */,
 				804DBCD724B714F600BEA060 /* Info.plist */,
 				804DBCCF24B714F400BEA060 /* Voting.xcdatamodeld */,
+				80440C6324B724E8002EE31A /* teams-data.plist */,
 			);
 			path = Voting;
 			sourceTree = "<group>";
@@ -131,6 +140,7 @@
 				804DBCD624B714F600BEA060 /* LaunchScreen.storyboard in Resources */,
 				804DBCD324B714F600BEA060 /* Assets.xcassets in Resources */,
 				804DBCCE24B714F400BEA060 /* Main.storyboard in Resources */,
+				80440C6424B724E8002EE31A /* teams-data.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				804DBCE024B71E8000BEA060 /* Team+CoreDataProperties.swift in Sources */,
 				804DBCCB24B714F400BEA060 /* ViewController.swift in Sources */,
 				804DBCC724B714F400BEA060 /* AppDelegate.swift in Sources */,
 				804DBCD124B714F400BEA060 /* Voting.xcdatamodeld in Sources */,
+				804DBCDF24B71E8000BEA060 /* Team+CoreDataClass.swift in Sources */,
 				804DBCC924B714F400BEA060 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

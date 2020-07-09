@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,111 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Voting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nra-Zf-5Xj">
+                                <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="b2C-4T-fkc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1w-hD-aJD">
+                                <rect key="frame" x="173" y="264" width="68.5" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Te5-sZ-zf5">
+                                <rect key="frame" x="10" y="314" width="394" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEJ-XW-uu7">
+                                        <rect key="frame" x="0.0" y="0.0" width="49" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDm-V7-5FE">
+                                        <rect key="frame" x="0.0" y="26.5" width="38" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last win" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrR-87-Th2">
+                                        <rect key="frame" x="0.0" y="53" width="63" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Txb-DI-aci">
+                                        <rect key="frame" x="0.0" y="79.5" width="70" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TJT-pq-Aqn">
+                                <rect key="frame" x="10" y="821" width="394" height="32"/>
+                                <segments>
+                                    <segment title="First team"/>
+                                    <segment title="Second team"/>
+                                    <segment title="Third team"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onTeamChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="vHU-yo-CtG"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqY-j5-Qb6">
+                                <rect key="frame" x="10" y="434" width="55" height="30"/>
+                                <state key="normal" title="Add win"/>
+                                <connections>
+                                    <action selector="onAddWin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N5g-eM-Lkd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yC6-De-sY7">
+                                <rect key="frame" x="332" y="434" width="72" height="30"/>
+                                <state key="normal" title="Add rating"/>
+                                <connections>
+                                    <action selector="onAddRating:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bvP-Xg-5VY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Nra-Zf-5Xj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2HW-rA-kc2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="TJT-pq-Aqn" secondAttribute="bottom" constant="10" id="3u8-IZ-zGg"/>
+                            <constraint firstItem="Q1w-hD-aJD" firstAttribute="top" secondItem="Nra-Zf-5Xj" secondAttribute="bottom" constant="20" id="9do-HZ-xeY"/>
+                            <constraint firstItem="Q1w-hD-aJD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bf2-8G-NV9"/>
+                            <constraint firstItem="Te5-sZ-zf5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Loe-OF-Arc"/>
+                            <constraint firstItem="yC6-De-sY7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KqY-j5-Qb6" secondAttribute="trailing" constant="8" symbolic="YES" id="OIy-ux-Off"/>
+                            <constraint firstItem="yC6-De-sY7" firstAttribute="top" secondItem="Te5-sZ-zf5" secondAttribute="bottom" constant="20" id="PpT-eM-Koq"/>
+                            <constraint firstItem="KqY-j5-Qb6" firstAttribute="top" secondItem="Te5-sZ-zf5" secondAttribute="bottom" constant="20" id="RdG-1o-mcN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nra-Zf-5Xj" secondAttribute="trailing" id="WNd-ph-IH0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TJT-pq-Aqn" secondAttribute="trailing" constant="10" id="XEm-4Y-NhA"/>
+                            <constraint firstItem="KqY-j5-Qb6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="aCU-dV-3bK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Te5-sZ-zf5" secondAttribute="trailing" constant="10" id="fWP-8b-QUL"/>
+                            <constraint firstItem="TJT-pq-Aqn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="i7i-MS-5uK"/>
+                            <constraint firstItem="Nra-Zf-5Xj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iMC-82-uUf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yC6-De-sY7" secondAttribute="trailing" constant="10" id="kGW-lN-QXU"/>
+                            <constraint firstItem="Te5-sZ-zf5" firstAttribute="top" secondItem="Q1w-hD-aJD" secondAttribute="bottom" constant="20" id="teP-Hz-Qoc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="favouriteLLabel" destination="Txb-DI-aci" id="NJg-an-S6z"/>
+                        <outlet property="imageView" destination="Nra-Zf-5Xj" id="IZf-sw-gpk"/>
+                        <outlet property="lastWinLabel" destination="KrR-87-Th2" id="xwk-mT-yA7"/>
+                        <outlet property="ratingLabel" destination="BEJ-XW-uu7" id="Ryg-0R-5YK"/>
+                        <outlet property="titleLabel" destination="Q1w-hD-aJD" id="gjz-9B-Rrr"/>
+                        <outlet property="winsLabel" destination="fDm-V7-5FE" id="F4o-ck-Uly"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
