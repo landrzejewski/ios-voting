@@ -12,19 +12,33 @@ import UIKit
 
 class TeamService {
     
+    private var asyncFetchRequest: NSAsynchronousFetchRequest<Team>?
+    
     var currentTeam: Team?
     
-    func loadTeam(selector: String) -> Team? {
+    func loadTeam(selector: String, callback:  @escaping (Team) -> ()) {
         let managedContext = AppDelegate.shared.context
         let request: NSFetchRequest<Team> = Team.fetchRequest()
         request.predicate = NSPredicate(format: "%K = %@", argumentArray: [#keyPath(Team.selector), selector])
+        asyncFetchRequest = NSAsynchronousFetchRequest<Team>(fetchRequest: request) { result in
+            guard let team = result.finalResult?.first else {
+                return
+            }
+            callback(team)
+        }
         do {
-            let results = try managedContext.fetch(request)
-            return results.first
+            try managedContext.execute(asyncFetchRequest!)
         } catch let error as NSError {
             print("Could not load team \(error)")
         }
-        return nil
+        
+        //do {
+           // let results = try managedContext.fetch(request)
+           // return results.first
+        //} catch let error as NSError {
+        //    print("Could not load team \(error)")
+        //}
+        //return nil
     }
     
     func initData() {

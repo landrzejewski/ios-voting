@@ -31,11 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         teamService.initData()
-        guard let team = teamService.loadTeam(selector: teamSegmentedControl.titleForSegment(at: 0)!) else {
-            return
-        }
-        teamService.currentTeam = team
-        updateView(team: team)
+       refresh()
     }
     
     @IBAction func onAddWin(_ sender: Any) {
@@ -62,11 +58,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onTeamChange(_ sender: UISegmentedControl) {
-        guard let team = teamService.loadTeam(selector: sender.titleForSegment(at: sender.selectedSegmentIndex)!) else {
-            return
+        refresh()
+    }
+    
+    func refresh() {
+        teamService.loadTeam(selector: teamSegmentedControl.titleForSegment(at: teamSegmentedControl.selectedSegmentIndex)!) { team in
+            self.teamService.currentTeam = team
+            self.updateView(team: team)
         }
-        teamService.currentTeam = team
-        updateView(team: team)
     }
     
     func updateView(team: Team) {
